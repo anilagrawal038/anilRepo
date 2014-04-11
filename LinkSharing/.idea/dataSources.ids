@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="MySQL - testdb@localhost" uuid="3476d395-e6bf-4a6b-9479-b993e1532a6a">
+    <database-info product="MySQL" version="5.5.35-0ubuntu0.13.10.2" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.29 ( Revision: alexander.soklakov@oracle.com-20140120140810-s44574olh90i6i4l )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="testdb"/>
+    <table name="lsinvitation" schema="" catalog="testdb" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="version" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="from_user_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="message" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="topic_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK68ED8860BCEC2838" columns="from_user_id" ref-table="lsuser" ref-schema="" ref-catalog="testdb" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK68ED8860AA3313C7" columns="topic_id" ref-table="lstopic" ref-schema="" ref-catalog="testdb" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK68ED8860AA3313C7" unique="false" columns="topic_id"/>
+      <index name="FK68ED8860BCEC2838" unique="false" columns="from_user_id"/>
+    </table>
+    <table name="lsinvitation_is_accepted_map" schema="" catalog="testdb" type="TABLE">
+      <column name="is_accepted_map" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="is_accepted_map_idx" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="is_accepted_map_elt" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+    </table>
+    <table name="lsrdocument" schema="" catalog="testdb" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="version" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="doc_content" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="doc_path" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="lsresource" schema="" catalog="testdb" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="version" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="description" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="owner" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="reference" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="resource_type" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="topic_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="class" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="link_path" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK95655A95AA3313C7" columns="topic_id" ref-table="lstopic" ref-schema="" ref-catalog="testdb" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FKF54E4524C25CF76D" table="lsresource_accessibility" schema="" catalog="testdb" columns="resource_id"/>
+      <index name="FK95655A95AA3313C7" unique="false" columns="topic_id"/>
+    </table>
+    <table name="lsresource_accessibility" schema="" catalog="testdb" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="version" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_read" sqlType="BIT" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="resource_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="user_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FKF54E4524C25CF76D" columns="resource_id" ref-table="lsresource" ref-schema="" ref-catalog="testdb" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FKF54E4524C4C1B3CD" columns="user_id" ref-table="lsuser" ref-schema="" ref-catalog="testdb" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FKF54E4524C25CF76D" unique="false" columns="resource_id"/>
+      <index name="FKF54E4524C4C1B3CD" unique="false" columns="user_id"/>
+    </table>
+    <table name="lssubscription" schema="" catalog="testdb" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="version" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="interest_level" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="topic_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="user_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK82C35424AA3313C7" columns="topic_id" ref-table="lstopic" ref-schema="" ref-catalog="testdb" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK82C35424C4C1B3CD" columns="user_id" ref-table="lsuser" ref-schema="" ref-catalog="testdb" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK82C35424AA3313C7" unique="false" columns="topic_id"/>
+      <index name="FK82C35424C4C1B3CD" unique="false" columns="user_id"/>
+    </table>
+    <table name="lstopic" schema="" catalog="testdb" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="version" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="access_type" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="date_created" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="description" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_update" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="owner" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="topic_name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="user_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK1BF51C08C4C1B3CD" columns="user_id" ref-table="lsuser" ref-schema="" ref-catalog="testdb" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK68ED8860AA3313C7" table="lsinvitation" schema="" catalog="testdb" columns="topic_id"/>
+      <exported-key name="FK95655A95AA3313C7" table="lsresource" schema="" catalog="testdb" columns="topic_id"/>
+      <exported-key name="FK82C35424AA3313C7" table="lssubscription" schema="" catalog="testdb" columns="topic_id"/>
+      <index name="FK1BF51C08C4C1B3CD" unique="false" columns="user_id"/>
+    </table>
+    <table name="lsuser" schema="" catalog="testdb" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="version" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="email_id" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="user_name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK68ED8860BCEC2838" table="lsinvitation" schema="" catalog="testdb" columns="from_user_id"/>
+      <exported-key name="FKF54E4524C4C1B3CD" table="lsresource_accessibility" schema="" catalog="testdb" columns="user_id"/>
+      <exported-key name="FK82C35424C4C1B3CD" table="lssubscription" schema="" catalog="testdb" columns="user_id"/>
+      <exported-key name="FK1BF51C08C4C1B3CD" table="lstopic" schema="" catalog="testdb" columns="user_id"/>
+    </table>
+  </data-source>
+  <data-source source="LOCAL" name="LinkSharing dev" uuid="61a0f12e-b78e-4977-ad8d-304abc8c3f0d">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>
