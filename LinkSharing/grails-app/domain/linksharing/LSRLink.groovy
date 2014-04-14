@@ -2,6 +2,17 @@ package linksharing
 
 class LSRLink extends LSResource{
     String linkPath
-    static constraints = {
+    LSRLink(){
+        resourceType='Link'
     }
+    static constraints = {
+        name()
+        description()
+        linkPath()
+        resourceType()
+        topic()
+        owner()
+        reference()
+    }
+
 }

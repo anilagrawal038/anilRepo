@@ -23,15 +23,6 @@
 			</g:if>
 			<ol class="property-list LSResourceAccessibility">
 			
-				<g:if test="${LSResourceAccessibilityInstance?.isRead}">
-				<li class="fieldcontain">
-					<span id="isRead-label" class="property-label"><g:message code="LSResourceAccessibility.isRead.label" default="Is Read" /></span>
-					
-						<span class="property-value" aria-labelledby="isRead-label"><g:formatBoolean boolean="${LSResourceAccessibilityInstance?.isRead}" /></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${LSResourceAccessibilityInstance?.resource}">
 				<li class="fieldcontain">
 					<span id="resource-label" class="property-label"><g:message code="LSResourceAccessibility.resource.label" default="Resource" /></span>
@@ -46,6 +37,15 @@
 					<span id="user-label" class="property-label"><g:message code="LSResourceAccessibility.user.label" default="User" /></span>
 					
 						<span class="property-value" aria-labelledby="user-label"><g:link controller="LSUser" action="show" id="${LSResourceAccessibilityInstance?.user?.id}">${LSResourceAccessibilityInstance?.user?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${LSResourceAccessibilityInstance?.isRead}">
+				<li class="fieldcontain">
+					<span id="isRead-label" class="property-label"><g:message code="LSResourceAccessibility.isRead.label" default="Is Read" /></span>
+					
+						<span class="property-value" aria-labelledby="isRead-label"><g:formatBoolean boolean="${LSResourceAccessibilityInstance?.isRead}" /></span>
 					
 				</li>
 				</g:if>

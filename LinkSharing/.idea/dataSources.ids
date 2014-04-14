@@ -36,15 +36,22 @@
       <column name="version" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <column name="description" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
       <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
-      <column name="owner" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
-      <column name="reference" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="owner_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="reference_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
       <column name="resource_type" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
       <column name="topic_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <column name="class" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="doc_content" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="doc_path" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="link_path" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK95655A9530A863E5" columns="owner_id" ref-table="lsuser" ref-schema="" ref-catalog="testdb" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK95655A955AD35710" columns="reference_id" ref-table="lsresource" ref-schema="" ref-catalog="testdb" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FK95655A95AA3313C7" columns="topic_id" ref-table="lstopic" ref-schema="" ref-catalog="testdb" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK95655A955AD35710" table="lsresource" schema="" catalog="testdb" columns="reference_id"/>
       <exported-key name="FKF54E4524C25CF76D" table="lsresource_accessibility" schema="" catalog="testdb" columns="resource_id"/>
+      <index name="FK95655A9530A863E5" unique="false" columns="owner_id"/>
+      <index name="FK95655A955AD35710" unique="false" columns="reference_id"/>
       <index name="FK95655A95AA3313C7" unique="false" columns="topic_id"/>
     </table>
     <table name="lsresource_accessibility" schema="" catalog="testdb" type="TABLE">
@@ -78,27 +85,33 @@
       <column name="date_created" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="description" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
       <column name="last_update" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
-      <column name="owner" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="owner_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <column name="topic_name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
       <column name="user_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK1BF51C0830A863E5" columns="owner_id" ref-table="lsuser" ref-schema="" ref-catalog="testdb" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FK1BF51C08C4C1B3CD" columns="user_id" ref-table="lsuser" ref-schema="" ref-catalog="testdb" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <exported-key name="FK68ED8860AA3313C7" table="lsinvitation" schema="" catalog="testdb" columns="topic_id"/>
       <exported-key name="FK95655A95AA3313C7" table="lsresource" schema="" catalog="testdb" columns="topic_id"/>
       <exported-key name="FK82C35424AA3313C7" table="lssubscription" schema="" catalog="testdb" columns="topic_id"/>
+      <index name="FK1BF51C0830A863E5" unique="false" columns="owner_id"/>
       <index name="FK1BF51C08C4C1B3CD" unique="false" columns="user_id"/>
     </table>
     <table name="lsuser" schema="" catalog="testdb" type="TABLE">
       <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
       <column name="version" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="confirm_password" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="email_id" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
       <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
       <column name="password" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
       <column name="user_name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="user_type" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
       <exported-key name="FK68ED8860BCEC2838" table="lsinvitation" schema="" catalog="testdb" columns="from_user_id"/>
+      <exported-key name="FK95655A9530A863E5" table="lsresource" schema="" catalog="testdb" columns="owner_id"/>
       <exported-key name="FKF54E4524C4C1B3CD" table="lsresource_accessibility" schema="" catalog="testdb" columns="user_id"/>
       <exported-key name="FK82C35424C4C1B3CD" table="lssubscription" schema="" catalog="testdb" columns="user_id"/>
+      <exported-key name="FK1BF51C0830A863E5" table="lstopic" schema="" catalog="testdb" columns="owner_id"/>
       <exported-key name="FK1BF51C08C4C1B3CD" table="lstopic" schema="" catalog="testdb" columns="user_id"/>
     </table>
   </data-source>

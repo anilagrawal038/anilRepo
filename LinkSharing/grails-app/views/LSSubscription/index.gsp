@@ -24,11 +24,11 @@
 			<thead>
 					<tr>
 					
-						<g:sortableColumn property="interestLevel" title="${message(code: 'LSSubscription.interestLevel.label', default: 'Interest Level')}" />
+						<th><g:message code="LSSubscription.user.label" default="User" /></th>
 					
 						<th><g:message code="LSSubscription.topic.label" default="Topic" /></th>
 					
-						<th><g:message code="LSSubscription.user.label" default="User" /></th>
+						<g:sortableColumn property="interestLevel" title="${message(code: 'LSSubscription.interestLevel.label', default: 'Interest Level')}" />
 					
 					</tr>
 				</thead>
@@ -36,11 +36,11 @@
 				<g:each in="${LSSubscriptionInstanceList}" status="i" var="LSSubscriptionInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${LSSubscriptionInstance.id}">${fieldValue(bean: LSSubscriptionInstance, field: "interestLevel")}</g:link></td>
+						<td><g:link action="show" id="${LSSubscriptionInstance.id}">${fieldValue(bean: LSSubscriptionInstance, field: "user")}</g:link></td>
 					
 						<td>${fieldValue(bean: LSSubscriptionInstance, field: "topic")}</td>
 					
-						<td>${fieldValue(bean: LSSubscriptionInstance, field: "user")}</td>
+						<td>${fieldValue(bean: LSSubscriptionInstance, field: "interestLevel")}</td>
 					
 					</tr>
 				</g:each>

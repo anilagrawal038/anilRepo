@@ -9,6 +9,7 @@ import grails.transaction.Transactional
 class LSRLinkController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    //LSCommonController commonController = new LSCommonController()
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -35,7 +36,12 @@ class LSRLinkController {
             return
         }
 
-        LSRLinkInstance.save flush:true
+        LSRLinkInstance.customSave flush:true
+
+
+        /*//commonController.params.id = ...
+        commonController.params.doNotRedirect = 'true'
+        commonController.onSaveResource(LSRLinkInstance);*/
 
         request.withFormat {
             form multipartForm {

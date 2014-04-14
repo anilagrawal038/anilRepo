@@ -7,6 +7,8 @@ import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
 class LSTopicController {
+    //LSCommonController commonController = new LSCommonController()
+
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -20,7 +22,7 @@ class LSTopicController {
     }
 
     def create() {
-        respond new LSTopic(params)
+        respond new LSTopic(params);
     }
 
     @Transactional
@@ -35,7 +37,12 @@ class LSTopicController {
             return
         }
 
-        LSTopicInstance.save flush:true
+        LSTopicInstance.customSave flush:true
+
+
+        /*//commonController.params.id = ...
+        commonController.params.doNotRedirect = 'true'
+        commonController.onSaveTopic(LSTopicInstance);*/
 
         request.withFormat {
             form multipartForm {

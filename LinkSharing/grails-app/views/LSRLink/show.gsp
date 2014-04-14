@@ -23,24 +23,6 @@
 			</g:if>
 			<ol class="property-list LSRLink">
 			
-				<g:if test="${LSRLinkInstance?.description}">
-				<li class="fieldcontain">
-					<span id="description-label" class="property-label"><g:message code="LSRLink.description.label" default="Description" /></span>
-					
-						<span class="property-value" aria-labelledby="description-label"><g:fieldValue bean="${LSRLinkInstance}" field="description"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${LSRLinkInstance?.linkPath}">
-				<li class="fieldcontain">
-					<span id="linkPath-label" class="property-label"><g:message code="LSRLink.linkPath.label" default="Link Path" /></span>
-					
-						<span class="property-value" aria-labelledby="linkPath-label"><g:fieldValue bean="${LSRLinkInstance}" field="linkPath"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${LSRLinkInstance?.name}">
 				<li class="fieldcontain">
 					<span id="name-label" class="property-label"><g:message code="LSRLink.name.label" default="Name" /></span>
@@ -50,20 +32,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${LSRLinkInstance?.owner}">
+				<g:if test="${LSRLinkInstance?.description}">
 				<li class="fieldcontain">
-					<span id="owner-label" class="property-label"><g:message code="LSRLink.owner.label" default="Owner" /></span>
+					<span id="description-label" class="property-label"><g:message code="LSRLink.description.label" default="Description" /></span>
 					
-						<span class="property-value" aria-labelledby="owner-label"><g:fieldValue bean="${LSRLinkInstance}" field="owner"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${LSRLinkInstance?.reference}">
-				<li class="fieldcontain">
-					<span id="reference-label" class="property-label"><g:message code="LSRLink.reference.label" default="Reference" /></span>
-					
-						<span class="property-value" aria-labelledby="reference-label"><g:fieldValue bean="${LSRLinkInstance}" field="reference"/></span>
+						<span class="property-value" aria-labelledby="description-label"><g:fieldValue bean="${LSRLinkInstance}" field="description"/></span>
 					
 				</li>
 				</g:if>
@@ -82,6 +55,33 @@
 					<span id="topic-label" class="property-label"><g:message code="LSRLink.topic.label" default="Topic" /></span>
 					
 						<span class="property-value" aria-labelledby="topic-label"><g:link controller="LSTopic" action="show" id="${LSRLinkInstance?.topic?.id}">${LSRLinkInstance?.topic?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${LSRLinkInstance?.owner}">
+				<li class="fieldcontain">
+					<span id="owner-label" class="property-label"><g:message code="LSRLink.owner.label" default="Owner" /></span>
+					
+						<span class="property-value" aria-labelledby="owner-label"><g:link controller="LSUser" action="show" id="${LSRLinkInstance?.owner?.id}">${LSRLinkInstance?.owner?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${LSRLinkInstance?.reference}">
+				<li class="fieldcontain">
+					<span id="reference-label" class="property-label"><g:message code="LSRLink.reference.label" default="Reference" /></span>
+					
+						<span class="property-value" aria-labelledby="reference-label"><g:link controller="LSResource" action="show" id="${LSRLinkInstance?.reference?.id}">${LSRLinkInstance?.reference?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${LSRLinkInstance?.linkPath}">
+				<li class="fieldcontain">
+					<span id="linkPath-label" class="property-label"><g:message code="LSRLink.linkPath.label" default="Link Path" /></span>
+					
+						<span class="property-value" aria-labelledby="linkPath-label"><g:fieldValue bean="${LSRLinkInstance}" field="linkPath"/></span>
 					
 				</li>
 				</g:if>

@@ -24,9 +24,17 @@
 			<thead>
 					<tr>
 					
-						<g:sortableColumn property="docContent" title="${message(code: 'LSRDocument.docContent.label', default: 'Doc Content')}" />
+						<g:sortableColumn property="name" title="${message(code: 'LSRDocument.name.label', default: 'Name')}" />
 					
-						<g:sortableColumn property="docPath" title="${message(code: 'LSRDocument.docPath.label', default: 'Doc Path')}" />
+						<g:sortableColumn property="description" title="${message(code: 'LSRDocument.description.label', default: 'Description')}" />
+					
+						<g:sortableColumn property="resourceType" title="${message(code: 'LSRDocument.resourceType.label', default: 'Resource Type')}" />
+					
+						<th><g:message code="LSRDocument.topic.label" default="Topic" /></th>
+					
+						<th><g:message code="LSRDocument.owner.label" default="Owner" /></th>
+					
+						<th><g:message code="LSRDocument.reference.label" default="Reference" /></th>
 					
 					</tr>
 				</thead>
@@ -34,9 +42,17 @@
 				<g:each in="${LSRDocumentInstanceList}" status="i" var="LSRDocumentInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${LSRDocumentInstance.id}">${fieldValue(bean: LSRDocumentInstance, field: "docContent")}</g:link></td>
+						<td><g:link action="show" id="${LSRDocumentInstance.id}">${fieldValue(bean: LSRDocumentInstance, field: "name")}</g:link></td>
 					
-						<td>${fieldValue(bean: LSRDocumentInstance, field: "docPath")}</td>
+						<td>${fieldValue(bean: LSRDocumentInstance, field: "description")}</td>
+					
+						<td>${fieldValue(bean: LSRDocumentInstance, field: "resourceType")}</td>
+					
+						<td>${fieldValue(bean: LSRDocumentInstance, field: "topic")}</td>
+					
+						<td>${fieldValue(bean: LSRDocumentInstance, field: "owner")}</td>
+					
+						<td>${fieldValue(bean: LSRDocumentInstance, field: "reference")}</td>
 					
 					</tr>
 				</g:each>

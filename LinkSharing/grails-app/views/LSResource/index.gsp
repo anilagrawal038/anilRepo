@@ -24,17 +24,17 @@
 			<thead>
 					<tr>
 					
-						<g:sortableColumn property="description" title="${message(code: 'LSResource.description.label', default: 'Description')}" />
-					
 						<g:sortableColumn property="name" title="${message(code: 'LSResource.name.label', default: 'Name')}" />
 					
-						<g:sortableColumn property="owner" title="${message(code: 'LSResource.owner.label', default: 'Owner')}" />
-					
-						<g:sortableColumn property="reference" title="${message(code: 'LSResource.reference.label', default: 'Reference')}" />
+						<g:sortableColumn property="description" title="${message(code: 'LSResource.description.label', default: 'Description')}" />
 					
 						<g:sortableColumn property="resourceType" title="${message(code: 'LSResource.resourceType.label', default: 'Resource Type')}" />
 					
 						<th><g:message code="LSResource.topic.label" default="Topic" /></th>
+					
+						<th><g:message code="LSResource.owner.label" default="Owner" /></th>
+					
+						<th><g:message code="LSResource.reference.label" default="Reference" /></th>
 					
 					</tr>
 				</thead>
@@ -42,17 +42,17 @@
 				<g:each in="${LSResourceInstanceList}" status="i" var="LSResourceInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${LSResourceInstance.id}">${fieldValue(bean: LSResourceInstance, field: "description")}</g:link></td>
+						<td><g:link action="show" id="${LSResourceInstance.id}">${fieldValue(bean: LSResourceInstance, field: "name")}</g:link></td>
 					
-						<td>${fieldValue(bean: LSResourceInstance, field: "name")}</td>
-					
-						<td>${fieldValue(bean: LSResourceInstance, field: "owner")}</td>
-					
-						<td>${fieldValue(bean: LSResourceInstance, field: "reference")}</td>
+						<td>${fieldValue(bean: LSResourceInstance, field: "description")}</td>
 					
 						<td>${fieldValue(bean: LSResourceInstance, field: "resourceType")}</td>
 					
 						<td>${fieldValue(bean: LSResourceInstance, field: "topic")}</td>
+					
+						<td>${fieldValue(bean: LSResourceInstance, field: "owner")}</td>
+					
+						<td>${fieldValue(bean: LSResourceInstance, field: "reference")}</td>
 					
 					</tr>
 				</g:each>

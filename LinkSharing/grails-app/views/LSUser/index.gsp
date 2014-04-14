@@ -24,13 +24,15 @@
 			<thead>
 					<tr>
 					
-						<g:sortableColumn property="emailId" title="${message(code: 'LSUser.emailId.label', default: 'Email Id')}" />
-					
 						<g:sortableColumn property="name" title="${message(code: 'LSUser.name.label', default: 'Name')}" />
 					
-						<g:sortableColumn property="password" title="${message(code: 'LSUser.password.label', default: 'Password')}" />
+						<g:sortableColumn property="emailId" title="${message(code: 'LSUser.emailId.label', default: 'Email Id')}" />
 					
 						<g:sortableColumn property="userName" title="${message(code: 'LSUser.userName.label', default: 'User Name')}" />
+					
+						<g:sortableColumn property="userType" title="${message(code: 'LSUser.userType.label', default: 'User Type')}" />
+					
+						<g:sortableColumn property="password" title="${message(code: 'LSUser.password.label', default: 'Password')}" />
 					
 					</tr>
 				</thead>
@@ -38,13 +40,15 @@
 				<g:each in="${LSUserInstanceList}" status="i" var="LSUserInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${LSUserInstance.id}">${fieldValue(bean: LSUserInstance, field: "emailId")}</g:link></td>
+						<td><g:link action="show" id="${LSUserInstance.id}">${fieldValue(bean: LSUserInstance, field: "name")}</g:link></td>
 					
-						<td>${fieldValue(bean: LSUserInstance, field: "name")}</td>
-					
-						<td>${fieldValue(bean: LSUserInstance, field: "password")}</td>
+						<td>${fieldValue(bean: LSUserInstance, field: "emailId")}</td>
 					
 						<td>${fieldValue(bean: LSUserInstance, field: "userName")}</td>
+					
+						<td>${fieldValue(bean: LSUserInstance, field: "userType")}</td>
+					
+						<td>${fieldValue(bean: LSUserInstance, field: "password")}</td>
 					
 					</tr>
 				</g:each>

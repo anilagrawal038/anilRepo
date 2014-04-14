@@ -9,6 +9,7 @@ import grails.transaction.Transactional
 class LSRDocumentController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    //LSCommonController commonController = new LSCommonController()
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -35,7 +36,10 @@ class LSRDocumentController {
             return
         }
 
-        LSRDocumentInstance.save flush:true
+        LSRDocumentInstance.customSave flush:true
+  /*      //commonController.params.id = ...
+        commonController.params.doNotRedirect = 'true'
+        commonController.onSaveResource(LSRDocumentInstance);*/
 
         request.withFormat {
             form multipartForm {

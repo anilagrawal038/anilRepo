@@ -23,11 +23,11 @@
 			</g:if>
 			<ol class="property-list LSSubscription">
 			
-				<g:if test="${LSSubscriptionInstance?.interestLevel}">
+				<g:if test="${LSSubscriptionInstance?.user}">
 				<li class="fieldcontain">
-					<span id="interestLevel-label" class="property-label"><g:message code="LSSubscription.interestLevel.label" default="Interest Level" /></span>
+					<span id="user-label" class="property-label"><g:message code="LSSubscription.user.label" default="User" /></span>
 					
-						<span class="property-value" aria-labelledby="interestLevel-label"><g:fieldValue bean="${LSSubscriptionInstance}" field="interestLevel"/></span>
+						<span class="property-value" aria-labelledby="user-label"><g:link controller="LSUser" action="show" id="${LSSubscriptionInstance?.user?.id}">${LSSubscriptionInstance?.user?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
@@ -41,11 +41,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${LSSubscriptionInstance?.user}">
+				<g:if test="${LSSubscriptionInstance?.interestLevel}">
 				<li class="fieldcontain">
-					<span id="user-label" class="property-label"><g:message code="LSSubscription.user.label" default="User" /></span>
+					<span id="interestLevel-label" class="property-label"><g:message code="LSSubscription.interestLevel.label" default="Interest Level" /></span>
 					
-						<span class="property-value" aria-labelledby="user-label"><g:link controller="LSUser" action="show" id="${LSSubscriptionInstance?.user?.id}">${LSSubscriptionInstance?.user?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="interestLevel-label"><g:fieldValue bean="${LSSubscriptionInstance}" field="interestLevel"/></span>
 					
 				</li>
 				</g:if>

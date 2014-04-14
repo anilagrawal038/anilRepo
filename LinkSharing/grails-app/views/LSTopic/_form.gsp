@@ -2,12 +2,12 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: LSTopicInstance, field: 'accessType', 'error')} ">
-	<label for="accessType">
-		<g:message code="LSTopic.accessType.label" default="Access Type" />
+<div class="fieldcontain ${hasErrors(bean: LSTopicInstance, field: 'topicName', 'error')} ">
+	<label for="topicName">
+		<g:message code="LSTopic.topicName.label" default="Topic Name" />
 		
 	</label>
-	<g:textField name="accessType" value="${LSTopicInstance?.accessType}"/>
+	<g:textField name="topicName" value="${LSTopicInstance?.topicName}"/>
 
 </div>
 
@@ -20,30 +20,12 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: LSTopicInstance, field: 'lastUpdate', 'error')} required">
-	<label for="lastUpdate">
-		<g:message code="LSTopic.lastUpdate.label" default="Last Update" />
+<div class="fieldcontain ${hasErrors(bean: LSTopicInstance, field: 'accessType', 'error')} required">
+	<label for="accessType">
+		<g:message code="LSTopic.accessType.label" default="Access Type" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="lastUpdate" precision="day"  value="${LSTopicInstance?.lastUpdate}"  />
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: LSTopicInstance, field: 'owner', 'error')} ">
-	<label for="owner">
-		<g:message code="LSTopic.owner.label" default="Owner" />
-		
-	</label>
-	<g:textField name="owner" value="${LSTopicInstance?.owner}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: LSTopicInstance, field: 'topicName', 'error')} ">
-	<label for="topicName">
-		<g:message code="LSTopic.topicName.label" default="Topic Name" />
-		
-	</label>
-	<g:textField name="topicName" value="${LSTopicInstance?.topicName}"/>
+	<g:select name="accessType" from="${linksharing.TopicType?.values()}" keys="${linksharing.TopicType.values()*.name()}" required="" value="${LSTopicInstance?.accessType?.name()}" />
 
 </div>
 
@@ -53,6 +35,24 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select id="user" name="user.id" from="${linksharing.LSUser.list()}" optionKey="id" required="" value="${LSTopicInstance?.user?.id}" class="many-to-one"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: LSTopicInstance, field: 'owner', 'error')} required">
+	<label for="owner">
+		<g:message code="LSTopic.owner.label" default="Owner" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="owner" name="owner.id" from="${linksharing.LSUser.list()}" optionKey="id" required="" value="${LSTopicInstance?.owner?.id}" class="many-to-one"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: LSTopicInstance, field: 'lastUpdate', 'error')} required">
+	<label for="lastUpdate">
+		<g:message code="LSTopic.lastUpdate.label" default="Last Update" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:datePicker name="lastUpdate" precision="day"  value="${LSTopicInstance?.lastUpdate}"  />
 
 </div>
 

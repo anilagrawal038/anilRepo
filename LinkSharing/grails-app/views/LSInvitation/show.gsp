@@ -32,11 +32,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${LSInvitationInstance?.isAcceptedMap}">
+				<g:if test="${LSInvitationInstance?.topic}">
 				<li class="fieldcontain">
-					<span id="isAcceptedMap-label" class="property-label"><g:message code="LSInvitation.isAcceptedMap.label" default="Is Accepted Map" /></span>
+					<span id="topic-label" class="property-label"><g:message code="LSInvitation.topic.label" default="Topic" /></span>
 					
-						<span class="property-value" aria-labelledby="isAcceptedMap-label"><g:fieldValue bean="${LSInvitationInstance}" field="isAcceptedMap"/></span>
+						<span class="property-value" aria-labelledby="topic-label"><g:link controller="LSTopic" action="show" id="${LSInvitationInstance?.topic?.id}">${LSInvitationInstance?.topic?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
@@ -50,11 +50,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${LSInvitationInstance?.topic}">
+				<g:if test="${LSInvitationInstance?.isAcceptedMap}">
 				<li class="fieldcontain">
-					<span id="topic-label" class="property-label"><g:message code="LSInvitation.topic.label" default="Topic" /></span>
+					<span id="isAcceptedMap-label" class="property-label"><g:message code="LSInvitation.isAcceptedMap.label" default="Is Accepted Map" /></span>
 					
-						<span class="property-value" aria-labelledby="topic-label"><g:link controller="LSTopic" action="show" id="${LSInvitationInstance?.topic?.id}">${LSInvitationInstance?.topic?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="isAcceptedMap-label"><g:fieldValue bean="${LSInvitationInstance}" field="isAcceptedMap"/></span>
 					
 				</li>
 				</g:if>

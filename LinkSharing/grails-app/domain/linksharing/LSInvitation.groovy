@@ -8,5 +8,9 @@ class LSInvitation {
     Map<LSUser,Boolean> isAcceptedMap
     String message
     static constraints = {
+        fromUser()
+        topic()
+        toUsers()
+        message()
     }
 }

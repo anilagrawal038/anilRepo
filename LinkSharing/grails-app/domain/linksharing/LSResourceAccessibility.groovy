@@ -6,5 +6,8 @@ class LSResourceAccessibility {
     boolean isRead
 
     static constraints = {
+        resource()
+        user()
+        isRead()
     }
 }

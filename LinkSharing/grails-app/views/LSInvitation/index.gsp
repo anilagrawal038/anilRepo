@@ -26,11 +26,11 @@
 					
 						<th><g:message code="LSInvitation.fromUser.label" default="From User" /></th>
 					
-						<g:sortableColumn property="isAcceptedMap" title="${message(code: 'LSInvitation.isAcceptedMap.label', default: 'Is Accepted Map')}" />
+						<th><g:message code="LSInvitation.topic.label" default="Topic" /></th>
 					
 						<g:sortableColumn property="message" title="${message(code: 'LSInvitation.message.label', default: 'Message')}" />
 					
-						<th><g:message code="LSInvitation.topic.label" default="Topic" /></th>
+						<g:sortableColumn property="isAcceptedMap" title="${message(code: 'LSInvitation.isAcceptedMap.label', default: 'Is Accepted Map')}" />
 					
 					</tr>
 				</thead>
@@ -40,11 +40,11 @@
 					
 						<td><g:link action="show" id="${LSInvitationInstance.id}">${fieldValue(bean: LSInvitationInstance, field: "fromUser")}</g:link></td>
 					
-						<td>${fieldValue(bean: LSInvitationInstance, field: "isAcceptedMap")}</td>
+						<td>${fieldValue(bean: LSInvitationInstance, field: "topic")}</td>
 					
 						<td>${fieldValue(bean: LSInvitationInstance, field: "message")}</td>
 					
-						<td>${fieldValue(bean: LSInvitationInstance, field: "topic")}</td>
+						<td>${fieldValue(bean: LSInvitationInstance, field: "isAcceptedMap")}</td>
 					
 					</tr>
 				</g:each>

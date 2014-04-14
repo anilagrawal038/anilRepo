@@ -9,14 +9,15 @@ import grails.transaction.Transactional
 class LSResourceController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    //LSCommonController commonController = new LSCommonController()
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond LSResource.list(params), model:[LSResourceInstanceCount: LSResource.count()]
+        respond LSResource.list(params), model:[LSResourceInstanceList:LSResource.list(params),LSResourceInstanceCount: LSResource.count()]
     }
 
     def show(LSResource LSResourceInstance) {
-        respond LSResourceInstance
+        respond LSResourceInstance, model:[LSResourceInstance:LSResourceInstance]
     }
 
     def create() {
@@ -35,7 +36,12 @@ class LSResourceController {
             return
         }
 
-        LSResourceInstance.save flush:true
+        LSResourceInstance.customSave flush:true
+
+
+        /*//commonController.params.id = .
+        commonController.params.doNotRedirect = 'true'
+        commonController.onSaveResource(LSResourceInstance);*/
 
         request.withFormat {
             form multipartForm {

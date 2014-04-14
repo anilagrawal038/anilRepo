@@ -24,11 +24,11 @@
 			<thead>
 					<tr>
 					
-						<g:sortableColumn property="isRead" title="${message(code: 'LSResourceAccessibility.isRead.label', default: 'Is Read')}" />
-					
 						<th><g:message code="LSResourceAccessibility.resource.label" default="Resource" /></th>
 					
 						<th><g:message code="LSResourceAccessibility.user.label" default="User" /></th>
+					
+						<g:sortableColumn property="isRead" title="${message(code: 'LSResourceAccessibility.isRead.label', default: 'Is Read')}" />
 					
 					</tr>
 				</thead>
@@ -36,11 +36,11 @@
 				<g:each in="${LSResourceAccessibilityInstanceList}" status="i" var="LSResourceAccessibilityInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${LSResourceAccessibilityInstance.id}">${fieldValue(bean: LSResourceAccessibilityInstance, field: "isRead")}</g:link></td>
-					
-						<td>${fieldValue(bean: LSResourceAccessibilityInstance, field: "resource")}</td>
+						<td><g:link action="show" id="${LSResourceAccessibilityInstance.id}">${fieldValue(bean: LSResourceAccessibilityInstance, field: "resource")}</g:link></td>
 					
 						<td>${fieldValue(bean: LSResourceAccessibilityInstance, field: "user")}</td>
+					
+						<td><g:formatBoolean boolean="${LSResourceAccessibilityInstance.isRead}" /></td>
 					
 					</tr>
 				</g:each>

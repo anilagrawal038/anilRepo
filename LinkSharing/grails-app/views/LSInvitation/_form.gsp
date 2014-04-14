@@ -11,12 +11,12 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: LSInvitationInstance, field: 'isAcceptedMap', 'error')} ">
-	<label for="isAcceptedMap">
-		<g:message code="LSInvitation.isAcceptedMap.label" default="Is Accepted Map" />
-		
+<div class="fieldcontain ${hasErrors(bean: LSInvitationInstance, field: 'topic', 'error')} required">
+	<label for="topic">
+		<g:message code="LSInvitation.topic.label" default="Topic" />
+		<span class="required-indicator">*</span>
 	</label>
-	
+	<g:select id="topic" name="topic.id" from="${linksharing.LSTopic.list()}" optionKey="id" required="" value="${LSInvitationInstance?.topic?.id}" class="many-to-one"/>
 
 </div>
 
@@ -29,12 +29,12 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: LSInvitationInstance, field: 'topic', 'error')} required">
-	<label for="topic">
-		<g:message code="LSInvitation.topic.label" default="Topic" />
-		<span class="required-indicator">*</span>
+<div class="fieldcontain ${hasErrors(bean: LSInvitationInstance, field: 'isAcceptedMap', 'error')} ">
+	<label for="isAcceptedMap">
+		<g:message code="LSInvitation.isAcceptedMap.label" default="Is Accepted Map" />
+		
 	</label>
-	<g:select id="topic" name="topic.id" from="${linksharing.LSTopic.list()}" optionKey="id" required="" value="${LSInvitationInstance?.topic?.id}" class="many-to-one"/>
+	
 
 </div>
 

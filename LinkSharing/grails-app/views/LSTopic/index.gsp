@@ -24,17 +24,17 @@
 			<thead>
 					<tr>
 					
-						<g:sortableColumn property="accessType" title="${message(code: 'LSTopic.accessType.label', default: 'Access Type')}" />
-					
-						<g:sortableColumn property="dateCreated" title="${message(code: 'LSTopic.dateCreated.label', default: 'Date Created')}" />
+						<g:sortableColumn property="topicName" title="${message(code: 'LSTopic.topicName.label', default: 'Topic Name')}" />
 					
 						<g:sortableColumn property="description" title="${message(code: 'LSTopic.description.label', default: 'Description')}" />
 					
-						<g:sortableColumn property="lastUpdate" title="${message(code: 'LSTopic.lastUpdate.label', default: 'Last Update')}" />
+						<g:sortableColumn property="accessType" title="${message(code: 'LSTopic.accessType.label', default: 'Access Type')}" />
 					
-						<g:sortableColumn property="owner" title="${message(code: 'LSTopic.owner.label', default: 'Owner')}" />
+						<th><g:message code="LSTopic.user.label" default="User" /></th>
 					
-						<g:sortableColumn property="topicName" title="${message(code: 'LSTopic.topicName.label', default: 'Topic Name')}" />
+						<th><g:message code="LSTopic.owner.label" default="Owner" /></th>
+					
+						<g:sortableColumn property="dateCreated" title="${message(code: 'LSTopic.dateCreated.label', default: 'Date Created')}" />
 					
 					</tr>
 				</thead>
@@ -42,17 +42,17 @@
 				<g:each in="${LSTopicInstanceList}" status="i" var="LSTopicInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${LSTopicInstance.id}">${fieldValue(bean: LSTopicInstance, field: "accessType")}</g:link></td>
-					
-						<td><g:formatDate date="${LSTopicInstance.dateCreated}" /></td>
+						<td><g:link action="show" id="${LSTopicInstance.id}">${fieldValue(bean: LSTopicInstance, field: "topicName")}</g:link></td>
 					
 						<td>${fieldValue(bean: LSTopicInstance, field: "description")}</td>
 					
-						<td><g:formatDate date="${LSTopicInstance.lastUpdate}" /></td>
+						<td>${fieldValue(bean: LSTopicInstance, field: "accessType")}</td>
+					
+						<td>${fieldValue(bean: LSTopicInstance, field: "user")}</td>
 					
 						<td>${fieldValue(bean: LSTopicInstance, field: "owner")}</td>
 					
-						<td>${fieldValue(bean: LSTopicInstance, field: "topicName")}</td>
+						<td><g:formatDate date="${LSTopicInstance.dateCreated}" /></td>
 					
 					</tr>
 				</g:each>

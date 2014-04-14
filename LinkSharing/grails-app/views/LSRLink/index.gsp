@@ -24,17 +24,17 @@
 			<thead>
 					<tr>
 					
-						<g:sortableColumn property="description" title="${message(code: 'LSRLink.description.label', default: 'Description')}" />
-					
-						<g:sortableColumn property="linkPath" title="${message(code: 'LSRLink.linkPath.label', default: 'Link Path')}" />
-					
 						<g:sortableColumn property="name" title="${message(code: 'LSRLink.name.label', default: 'Name')}" />
 					
-						<g:sortableColumn property="owner" title="${message(code: 'LSRLink.owner.label', default: 'Owner')}" />
-					
-						<g:sortableColumn property="reference" title="${message(code: 'LSRLink.reference.label', default: 'Reference')}" />
+						<g:sortableColumn property="description" title="${message(code: 'LSRLink.description.label', default: 'Description')}" />
 					
 						<g:sortableColumn property="resourceType" title="${message(code: 'LSRLink.resourceType.label', default: 'Resource Type')}" />
+					
+						<th><g:message code="LSRLink.topic.label" default="Topic" /></th>
+					
+						<th><g:message code="LSRLink.owner.label" default="Owner" /></th>
+					
+						<th><g:message code="LSRLink.reference.label" default="Reference" /></th>
 					
 					</tr>
 				</thead>
@@ -42,17 +42,17 @@
 				<g:each in="${LSRLinkInstanceList}" status="i" var="LSRLinkInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${LSRLinkInstance.id}">${fieldValue(bean: LSRLinkInstance, field: "description")}</g:link></td>
+						<td><g:link action="show" id="${LSRLinkInstance.id}">${fieldValue(bean: LSRLinkInstance, field: "name")}</g:link></td>
 					
-						<td>${fieldValue(bean: LSRLinkInstance, field: "linkPath")}</td>
+						<td>${fieldValue(bean: LSRLinkInstance, field: "description")}</td>
 					
-						<td>${fieldValue(bean: LSRLinkInstance, field: "name")}</td>
+						<td>${fieldValue(bean: LSRLinkInstance, field: "resourceType")}</td>
+					
+						<td>${fieldValue(bean: LSRLinkInstance, field: "topic")}</td>
 					
 						<td>${fieldValue(bean: LSRLinkInstance, field: "owner")}</td>
 					
 						<td>${fieldValue(bean: LSRLinkInstance, field: "reference")}</td>
-					
-						<td>${fieldValue(bean: LSRLinkInstance, field: "resourceType")}</td>
 					
 					</tr>
 				</g:each>

@@ -23,6 +23,15 @@
 			</g:if>
 			<ol class="property-list LSUser">
 			
+				<g:if test="${LSUserInstance?.name}">
+				<li class="fieldcontain">
+					<span id="name-label" class="property-label"><g:message code="LSUser.name.label" default="Name" /></span>
+					
+						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${LSUserInstance}" field="name"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${LSUserInstance?.emailId}">
 				<li class="fieldcontain">
 					<span id="emailId-label" class="property-label"><g:message code="LSUser.emailId.label" default="Email Id" /></span>
@@ -32,11 +41,20 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${LSUserInstance?.name}">
+				<g:if test="${LSUserInstance?.userName}">
 				<li class="fieldcontain">
-					<span id="name-label" class="property-label"><g:message code="LSUser.name.label" default="Name" /></span>
+					<span id="userName-label" class="property-label"><g:message code="LSUser.userName.label" default="User Name" /></span>
 					
-						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${LSUserInstance}" field="name"/></span>
+						<span class="property-value" aria-labelledby="userName-label"><g:fieldValue bean="${LSUserInstance}" field="userName"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${LSUserInstance?.userType}">
+				<li class="fieldcontain">
+					<span id="userType-label" class="property-label"><g:message code="LSUser.userType.label" default="User Type" /></span>
+					
+						<span class="property-value" aria-labelledby="userType-label"><g:fieldValue bean="${LSUserInstance}" field="userType"/></span>
 					
 				</li>
 				</g:if>
@@ -57,15 +75,6 @@
 						<g:each in="${LSUserInstance.topic}" var="t">
 						<span class="property-value" aria-labelledby="topic-label"><g:link controller="LSTopic" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></span>
 						</g:each>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${LSUserInstance?.userName}">
-				<li class="fieldcontain">
-					<span id="userName-label" class="property-label"><g:message code="LSUser.userName.label" default="User Name" /></span>
-					
-						<span class="property-value" aria-labelledby="userName-label"><g:fieldValue bean="${LSUserInstance}" field="userName"/></span>
 					
 				</li>
 				</g:if>

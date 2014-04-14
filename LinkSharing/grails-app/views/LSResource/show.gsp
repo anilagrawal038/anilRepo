@@ -23,15 +23,6 @@
 			</g:if>
 			<ol class="property-list LSResource">
 			
-				<g:if test="${LSResourceInstance?.description}">
-				<li class="fieldcontain">
-					<span id="description-label" class="property-label"><g:message code="LSResource.description.label" default="Description" /></span>
-					
-						<span class="property-value" aria-labelledby="description-label"><g:fieldValue bean="${LSResourceInstance}" field="description"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${LSResourceInstance?.name}">
 				<li class="fieldcontain">
 					<span id="name-label" class="property-label"><g:message code="LSResource.name.label" default="Name" /></span>
@@ -41,20 +32,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${LSResourceInstance?.owner}">
+				<g:if test="${LSResourceInstance?.description}">
 				<li class="fieldcontain">
-					<span id="owner-label" class="property-label"><g:message code="LSResource.owner.label" default="Owner" /></span>
+					<span id="description-label" class="property-label"><g:message code="LSResource.description.label" default="Description" /></span>
 					
-						<span class="property-value" aria-labelledby="owner-label"><g:fieldValue bean="${LSResourceInstance}" field="owner"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${LSResourceInstance?.reference}">
-				<li class="fieldcontain">
-					<span id="reference-label" class="property-label"><g:message code="LSResource.reference.label" default="Reference" /></span>
-					
-						<span class="property-value" aria-labelledby="reference-label"><g:fieldValue bean="${LSResourceInstance}" field="reference"/></span>
+						<span class="property-value" aria-labelledby="description-label"><g:fieldValue bean="${LSResourceInstance}" field="description"/></span>
 					
 				</li>
 				</g:if>
@@ -73,6 +55,24 @@
 					<span id="topic-label" class="property-label"><g:message code="LSResource.topic.label" default="Topic" /></span>
 					
 						<span class="property-value" aria-labelledby="topic-label"><g:link controller="LSTopic" action="show" id="${LSResourceInstance?.topic?.id}">${LSResourceInstance?.topic?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${LSResourceInstance?.owner}">
+				<li class="fieldcontain">
+					<span id="owner-label" class="property-label"><g:message code="LSResource.owner.label" default="Owner" /></span>
+					
+						<span class="property-value" aria-labelledby="owner-label"><g:link controller="LSUser" action="show" id="${LSResourceInstance?.owner?.id}">${LSResourceInstance?.owner?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${LSResourceInstance?.reference}">
+				<li class="fieldcontain">
+					<span id="reference-label" class="property-label"><g:message code="LSResource.reference.label" default="Reference" /></span>
+					
+						<span class="property-value" aria-labelledby="reference-label"><g:link controller="LSResource" action="show" id="${LSResourceInstance?.reference?.id}">${LSResourceInstance?.reference?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
